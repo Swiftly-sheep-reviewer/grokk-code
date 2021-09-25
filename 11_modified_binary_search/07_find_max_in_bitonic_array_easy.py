@@ -1,0 +1,26 @@
+def find_max_in_bitonic_array(arr):
+    """
+
+    :param arr:
+    :return:
+    """
+    start, end = 0, len(arr) - 1
+    while start <= end:
+        mid = (start + end) // 2
+        if arr[mid] > arr[mid + 1]:
+            end = mid
+        else:
+            start = mid + 1
+    # at the end of the while loop, 'start == end'
+    return arr[start]
+
+
+def main():
+    print(find_max_in_bitonic_array([1, 3, 8, 12, 4, 2]))
+    print(find_max_in_bitonic_array([3, 8, 3, 1]))
+    print(find_max_in_bitonic_array([1, 3, 8, 12]))
+    print(find_max_in_bitonic_array([10, 9, 8]))
+
+
+if __name__ == "__main__":
+    main()
